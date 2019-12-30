@@ -7,7 +7,7 @@ deploy_prod () {
 deploy_dev () {
     npm run build
     aws s3 sync build/ s3://haasivut-front/ --profile personal
-    #aws cloudfront create-invalidation --distribution-id E1ZE6IHJEWO71H --paths '/*' --profile personal
+    aws cloudfront create-invalidation --distribution-id E37P62XEIBLJV2 --paths '/*' --profile personal
 }
 
 echo
