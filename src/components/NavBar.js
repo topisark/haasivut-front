@@ -7,7 +7,7 @@ const styles = theme => ({
     backgroundColor: 'white'
   },
   navigationActionRoot: {
-    color: '#7d797a'
+    color: '#7d797ad4'
   }
 })
 
