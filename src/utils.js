@@ -1,0 +1,1 @@
+export const reverse = array => array.map((item, index) => array[ array.length - 1 - index ])

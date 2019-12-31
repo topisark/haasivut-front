@@ -1,10 +1,10 @@
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
 
-const Home = () => (
+const Map = () => (
   <Typography variant="body1">
-    Puspus kulta
+    Kartta
   </Typography>
 )
 
-export default Home
+export default Map
