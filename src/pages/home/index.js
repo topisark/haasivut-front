@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 
 const Home = () => (
-  <Typography variant="body1">
+  <Typography variant="body1" color="textPrimary">
     Puspus kulta
   </Typography>
 )
