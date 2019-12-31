@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
-import { BottomNavigation, BottomNavigationAction, Paper } from '@material-ui/core'
+import { BottomNavigation, BottomNavigationAction, Paper, withStyles } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-const NavBar = ({ pages }) => {
+const styles = theme => ({
+  navigationRoot: {
+    backgroundColor: 'white'
+  },
+  navigationActionRoot: {
+    color: '#7d797a'
+  }
+})
+
+const NavBar = ({ classes, pages }) => {
 
   const [ selectedPage, setSelectedPage ] = useState(0)
 
   return (
     <Paper>
       <BottomNavigation
+        classes={{ root: classes.navigationRoot }}
         value={ selectedPage }
         onChange={(event, newValue) => setSelectedPage(newValue)}
         showLabels
       >
         { pages.map(page => (
           <BottomNavigationAction
+            classes={{ root: classes.navigationActionRoot }}
             key={page.label}
             component={Link}
             to={page.to}
@@ -27,4 +38,4 @@ const NavBar = ({ pages }) => {
   )
 }
 
-export default NavBar
+export default withStyles(styles)(NavBar)
