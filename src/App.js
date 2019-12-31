@@ -20,17 +20,21 @@ const styles = theme => ({
     height: '100%',
   },
   content: {
-    padding: theme.spacing()
+    padding: theme.spacing(2)
   }
 })
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     text: {
       primary: '#FFFFFF',
     },
     primary: {
       main: '#e58c8a'
+    },
+    secondary: {
+      main: '#FFFFFF',
     },
   },
 })
@@ -56,27 +60,25 @@ const pages = [
   }
 ]
 
-function App({ classes }) {
-  return (
-    <div className={ classes.root }>
-      <Router>
-        <MuiThemeProvider theme={ theme }>
-          <NavBar pages={pages} />
-          <div className={ classes.content }>
-            <Switch>
-              {reverse(pages).map(page => (
-                <Route
-                  key={page.label}
-                  path={page.to}
-                  component={page.component}
-                />
-              ))}
-            </Switch>
-          </div>
-        </MuiThemeProvider>
-      </Router>
-    </div>
-  )
-}
+const App = ({ classes }) => (
+  <div className={ classes.root }>
+    <Router>
+      <MuiThemeProvider theme={ theme }>
+        <NavBar pages={pages} />
+        <div className={ classes.content }>
+          <Switch>
+            {reverse(pages).map(page => (
+              <Route
+                key={page.label}
+                path={page.to}
+                component={page.component}
+              />
+            ))}
+          </Switch>
+        </div>
+      </MuiThemeProvider>
+    </Router>
+  </div>
+)
 
 export default withStyles(styles)(App)
