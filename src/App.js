@@ -1,16 +1,52 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
+import { withStyles, MuiThemeProvider } from '@material-ui/core'
+import { createMuiTheme } from '@material-ui/core/styles'
+import NavBar from './components/NavBar'
+import Home from './pages/home'
+import Register from './pages/register'
 
-function App() {
+const styles = theme => ({
+  root: {
+    height: '100%',
+  },
+  content: {
+    padding: theme.spacing()
+  }
+})
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#e58c8a'
+    },
+  },
+})
+
+function App({ classes }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Puspus kulta!
-        </p>
-      </header>
+    <div className={ classes.root }>
+      <Router>
+        <MuiThemeProvider theme={ theme }>
+          <NavBar/>
+          <div className={ classes.content }>
+            <Switch>
+              <Route path="/ilmoittaudu">
+                <Register/>
+              </Route>
+              <Route path="/">
+                <Home/>
+              </Route>
+            </Switch>
+          </div>
+        </MuiThemeProvider>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default withStyles(styles)(App)
