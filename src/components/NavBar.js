@@ -13,24 +13,27 @@ const styles = theme => ({
 
 const NavBar = ({ classes, pages }) => {
 
+  // Keeping this as kind of a hack to get component to refresh when path changes
+  // eslint-disable-next-line no-unused-vars
   const [ selectedPage, setSelectedPage ] = useState(0)
+
+  const currentPath = window.location.pathname
 
   return (
     <Paper>
       <BottomNavigation
         classes={{ root: classes.navigationRoot }}
-        value={ selectedPage }
+        value={ currentPath }
         onChange={(event, newValue) => setSelectedPage(newValue)}
         showLabels
       >
         { pages.map(page => (
           <BottomNavigationAction
+            { ...page }
             classes={{ root: classes.navigationActionRoot }}
             key={page.label}
             component={Link}
-            to={page.to}
-            label={page.label}
-            icon={page.icon}
+            value={page.to}
           />
         ))}
       </BottomNavigation>
