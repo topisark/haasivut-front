@@ -9,12 +9,15 @@ const styles = theme => ({
   },
   inputField: {
     marginTop: theme.spacing(2)
+  },
+  instructions: {
+    padding: theme.spacing(4)
   }
 })
 
 const Register = ({ classes }) => (
   <div className={ classes.root }>
-    <Typography variant="body1" color="textPrimary">
+    <Typography className={classes.instructions} variant="h5" color="textPrimary">
       Ilmoitathan jokaisen vieraan erikseen
     </Typography>
     <TextField
@@ -29,7 +32,7 @@ const Register = ({ classes }) => (
       rows="2"
       className={ classes.inputField }
       color="secondary"
-      label="Erityisruokavalio"
+      label="Erityisruokavaliot"
       variant="outlined"
     />
     <Button
