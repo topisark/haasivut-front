@@ -84,8 +84,6 @@ const Register = ({ classes }) => {
       }
       <Snackbar
         open={done}
-        autoHideDuration={10000}
-        onClose={console.log}
         message={
           <Typography>
             Kiitos! Haluatko ilmoittaa toisen henkilön?
