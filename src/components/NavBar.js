@@ -20,7 +20,7 @@ const NavBar = ({ classes, pages }) => {
   const currentPath = window.location.pathname
 
   return (
-    <Paper>
+    <Paper id="navbar-root">
       <BottomNavigation
         classes={{ root: classes.navigationRoot }}
         value={ currentPath }
