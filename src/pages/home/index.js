@@ -3,7 +3,7 @@ import React from 'react'
 
 const Home = () => (
   <Typography variant="body1" color="textPrimary">
-    Puspus kulta
+    Anniina & Topi - Kulosaaren Casino 9.5.2020
   </Typography>
 )
 

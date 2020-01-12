@@ -59,12 +59,12 @@ const pages = [
     component: Map,
     icon: <RoomIcon/>
   },
-  {
+  /*{
     label: 'Kuvat',
     to: '/Kuvat',
     component: Home,
     icon: <CameraAltIcon/>
-  }
+  }*/
 ]
 
 const App = ({ classes }) => (
