@@ -14,3 +14,30 @@ body {
 #root {
   height: 100%;
 }
+
+.PlaceMarker:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right-color: #fff;
+  border-left: 0;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+.PlaceMarker:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
+  border-right-color: #cacaca;
+  border-left: 0;
+  margin-top: -9px;
+  margin-left: -9px;
+}
