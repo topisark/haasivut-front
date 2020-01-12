@@ -9,7 +9,7 @@ const styles = theme => ({
     cursor: 'pointer',
     position: 'relative',
     left: '20px',
-    bottom: '30px',
+    bottom: '27px',
     padding: '3px 7px 3px 7px',
     whiteSpace: 'nowrap',
     display: 'flex',
