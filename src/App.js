@@ -8,7 +8,8 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/Favorite'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
-import MapIcon from '@material-ui/icons/Map'
+import RoomIcon from '@material-ui/icons/Room';
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import NavBar from './components/NavBar'
 import Home from './pages/home'
 import Register from './pages/register'
@@ -56,7 +57,13 @@ const pages = [
     label: 'Sijainti',
     to: '/sijainti',
     component: Map,
-    icon: <MapIcon/>
+    icon: <RoomIcon/>
+  },
+  {
+    label: 'Kuvat',
+    to: '/Kuvat',
+    component: Home,
+    icon: <CameraAltIcon/>
   }
 ]
 
