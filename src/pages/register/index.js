@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { withStyles, Snackbar, Button, Typography, TextField } from '@material-ui/core'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { withRouter } from 'react-router-dom'
 import { addRegistration } from '../../services/registrations'
 
 const styles = theme => ({
@@ -21,11 +22,12 @@ const styles = theme => ({
   }
 })
 
-const Register = ({ classes }) => {
+const Register = ({ classes, history }) => {
   const [name, setName] = useState('')
   const [specials, setSpecials] = useState('')
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
+  const [showDialog, setShowDialog] = useState(false)
 
   const sendRegistration = useCallback(async () => {
     if (loading) return
@@ -33,12 +35,21 @@ const Register = ({ classes }) => {
     await addRegistration({ name, specials })
     setLoading(false)
     setDone(true)
+    setShowDialog(true)
   }, [loading, name, specials])
 
   const clearForm = () => {
     setName('')
     setSpecials('')
     setDone(false)
+    setShowDialog(false)
+  }
+
+  const allDone = () => {
+    setShowDialog(false)
+    setTimeout(() => {
+      history.push('/')
+    }, 400)
   }
 
   return (
@@ -83,7 +94,7 @@ const Register = ({ classes }) => {
         </React.Fragment>
       }
       <Snackbar
-        open={done}
+        open={showDialog}
         message={
           <Typography>
             Kiitos! Haluatko ilmoittaa toisen henkilön?
@@ -95,10 +106,15 @@ const Register = ({ classes }) => {
               Kyllä
             </Typography>
           </Button>,
+          <Button key="no" color="primary" size="small" onClick={allDone}>
+            <Typography>
+              Ei
+            </Typography>
+          </Button>,
         ]}
       />
     </div>
   )
 }
 
-export default withStyles(styles)(Register)
+export default withStyles(styles)(withRouter(Register))

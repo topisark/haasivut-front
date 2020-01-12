@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BottomNavigation, BottomNavigationAction, Paper, withStyles } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 const styles = theme => ({
   navigationRoot: {
@@ -11,20 +11,14 @@ const styles = theme => ({
   }
 })
 
-const NavBar = ({ classes, pages }) => {
-
-  // Keeping this as kind of a hack to get component to refresh when path changes
-  // eslint-disable-next-line no-unused-vars
-  const [ selectedPage, setSelectedPage ] = useState(0)
-
-  const currentPath = window.location.pathname
+const NavBar = ({ classes, pages, location }) => {
+  const currentPath = location.pathname
 
   return (
     <Paper id="navbar-root">
       <BottomNavigation
         classes={{ root: classes.navigationRoot }}
         value={ currentPath }
-        onChange={(event, newValue) => setSelectedPage(newValue)}
         showLabels
       >
         { pages.map(page => (
@@ -41,4 +35,4 @@ const NavBar = ({ classes, pages }) => {
   )
 }
 
-export default withStyles(styles)(NavBar)
+export default withStyles(styles)(withRouter(NavBar))
