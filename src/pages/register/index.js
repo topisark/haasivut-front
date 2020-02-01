@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react'
-import { withStyles, Snackbar, Button, Typography, TextField } from '@material-ui/core'
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { withStyles, Snackbar, Button, Typography, TextField, FormControlLabel, Switch } from '@material-ui/core'
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import CheckIcon from '@material-ui/icons/Check'
 import { withRouter } from 'react-router-dom'
 import { addRegistration } from '../../services/registrations'
 
@@ -19,12 +21,20 @@ const styles = theme => ({
   doneIcon: {
     width: 200,
     height: 200
+  },
+  switchBase: {
+    color: '#eec0c6'
+  },
+  controlLabelRoot: {
+    marginLeft: 0,
+    marginRight: 0
   }
 })
 
 const Register = ({ classes, history }) => {
   const [name, setName] = useState('')
   const [specials, setSpecials] = useState('')
+  const [speech, setSpeech] = useState(false)
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
@@ -32,15 +42,16 @@ const Register = ({ classes, history }) => {
   const sendRegistration = useCallback(async () => {
     if (loading) return
     setLoading(true)
-    await addRegistration({ name, specials })
+    await addRegistration({ name, specials, speech })
     setLoading(false)
     setDone(true)
     setShowDialog(true)
-  }, [loading, name, specials])
+  }, [loading, name, specials, speech])
 
   const clearForm = () => {
     setName('')
     setSpecials('')
+    setSpeech(false)
     setDone(false)
     setShowDialog(false)
   }
@@ -82,6 +93,19 @@ const Register = ({ classes, history }) => {
             variant="outlined"
             value={specials}
             onChange={event => setSpecials(event.target.value)}
+          />
+          <FormControlLabel
+            classes={{ root: classes.controlLabelRoot }}
+            className={ classes.inputField }
+            control={
+              <Switch
+                checkedIcon={<div style={{ background: '#fffefe', height: 24, borderRadius: 50 }}><CheckIcon color="primary" /></div>}
+                classes={{ switchBase: classes.switchBase }}
+                checked={speech}
+                onChange={e => setSpeech(e.target.checked)}
+              />
+            }
+            label={<Typography color="textPrimary">Haluan pitää juhlassa puheen</Typography>}
           />
           <Button
             disabled={loading || name.length < 3}
