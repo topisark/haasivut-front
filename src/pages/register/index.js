@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { withStyles, Snackbar, Button, Typography, TextField, FormControlLabel, Switch } from '@material-ui/core'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import CheckIcon from '@material-ui/icons/Check'
 import { withRouter } from 'react-router-dom'
 import { addRegistration } from '../../services/registrations'
 
@@ -95,12 +93,10 @@ const Register = ({ classes, history }) => {
             onChange={event => setSpecials(event.target.value)}
           />
           <FormControlLabel
-            classes={{ root: classes.controlLabelRoot }}
             className={ classes.inputField }
             control={
               <Switch
-                checkedIcon={<div style={{ background: '#fffefe', height: 24, borderRadius: 50 }}><CheckIcon color="primary" /></div>}
-                classes={{ switchBase: classes.switchBase }}
+                color="primary"
                 checked={speech}
                 onChange={e => setSpeech(e.target.checked)}
               />
