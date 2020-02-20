@@ -77,7 +77,7 @@ const Register = ({ classes, history }) => {
             disabled={loading}
             required
             className={ classes.inputField }
-            color="secondary"
+            color="primary"
             label="Nimi"
             variant="outlined"
             value={name}
@@ -88,7 +88,7 @@ const Register = ({ classes, history }) => {
             multiline
             rows="2"
             className={ classes.inputField }
-            color="secondary"
+            color="primary"
             label="Erityisruokavaliot"
             variant="outlined"
             value={specials}
