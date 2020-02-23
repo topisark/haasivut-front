@@ -9,10 +9,12 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/Favorite'
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
+import InfoIcon from '@material-ui/icons/Info'
 import RoomIcon from '@material-ui/icons/Room'
 import NavBar from './components/NavBar'
 import Home from './pages/home'
 import Schedule from './pages/schedule'
+import Info from './pages/info'
 import Register from './pages/register'
 import Map from './pages/map'
 import { reverse } from './utils'
@@ -52,16 +54,22 @@ const pages = [
     icon: <ScheduleIcon/>
   },
   {
-    label: 'Ilmoittaudu',
-    to: '/ilmoittaudu',
-    component: Register,
-    icon: <PersonAddIcon/>
+    label: 'Info',
+    to: '/info',
+    component: Info,
+    icon: <InfoIcon/>
   },
   {
     label: 'Sijainti',
     to: '/sijainti',
     component: Map,
     icon: <RoomIcon/>
+  },
+  {
+    label: 'Ilmoittaudu',
+    to: '/ilmoittaudu',
+    component: Register,
+    icon: <PersonAddIcon/>
   },
   /*{
     label: 'Kuvat',

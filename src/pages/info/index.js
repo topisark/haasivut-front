@@ -11,7 +11,7 @@ const styles = theme => ({
   },
 })
 
-const Schedule = ({ classes }) => (
+const Info = ({ classes }) => (
   <div className={classes.root}>
     <Typography color="textPrimary" className={classes.caption}>
       Päivittyy myöhemmin
@@ -19,4 +19,4 @@ const Schedule = ({ classes }) => (
   </div>
 )
 
-export default withStyles(styles)(Schedule)
+export default withStyles(styles)(Info)
