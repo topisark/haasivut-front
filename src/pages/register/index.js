@@ -30,7 +30,7 @@ const styles = theme => ({
   form: {
     display: 'flex',
     flexDirection: 'column'
-  }
+  },
 })
 
 const Register = ({ classes, history }) => {
@@ -89,11 +89,15 @@ const Register = ({ classes, history }) => {
             value={name}
             onChange={event => setName(event.target.value)}
           />
-          <FormControl required component="fieldset" className={classes.inputField}>
-            <FormLabel component="legend">Osallistun hääjuhlaan</FormLabel>
+          <FormControl component="fieldset" className={classes.inputField}>
+            <FormLabel component="legend">
+              <Typography color="textPrimary">
+                Osallistun hääjuhlaan
+              </Typography>
+              </FormLabel>
             <RadioGroup value={attending} onChange={e => setAttending(e.target.value === 'true' )}>
-              <FormControlLabel value={true} control={<Radio color="primary" />} label="Kyllä" />
-              <FormControlLabel value={false} control={<Radio color="primary" />} label="En" />
+              <FormControlLabel value={true} control={<Radio color="primary" />} label={<Typography color="textPrimary">Kyllä</Typography>} />
+              <FormControlLabel value={false} control={<Radio color="primary" />} label={<Typography color="textPrimary">En</Typography>} />
             </RadioGroup>
           </FormControl>
           <TextField
