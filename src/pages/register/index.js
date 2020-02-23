@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { withStyles, Snackbar, Button, Typography, TextField, FormControlLabel, Checkbox, Switch, FormControl, FormLabel, RadioGroup, Radio } from '@material-ui/core'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
 import { withRouter } from 'react-router-dom'
+import DoneIcon from '@material-ui/icons/Done';
 import { addRegistration } from '../../services/registrations'
 
 const styles = theme => ({
@@ -10,11 +11,17 @@ const styles = theme => ({
     alignItems: 'center',
     flexDirection: 'column'
   },
+  doneIcon: {
+    width: 200,
+    height: 200
+  },
   inputField: {
     marginTop: theme.spacing(3)
   },
   instructions: {
-    padding: theme.spacing(4)
+    fontWeight: 400,
+    fontSize: 19,
+    padding: theme.spacing(1)
   },
   controlLabelRoot: {
     marginLeft: 0,
@@ -65,7 +72,7 @@ const Register = ({ classes, history }) => {
   return (
     <div className={ classes.root }>
       { done &&
-        <CheckCircleOutlineIcon color="secondary" className={classes.doneIcon} />
+        <CheckCircleOutlineIcon color="primary" className={classes.doneIcon} />
       }
       { !done &&
         <div className={classes.form}>
@@ -122,12 +129,14 @@ const Register = ({ classes, history }) => {
             label={<Typography color="textPrimary">Haluan pitää juhlassa puheen</Typography>}
           />
           <Button
+            size="large"
             disabled={loading || name.length < 3}
             className={ classes.inputField }
             variant="outlined"
             onClick={sendRegistration}
           >
-            Ilmoittaudu
+            <DoneIcon style={{ paddingRight: 10 }}/>
+            <span>Ilmoittaudu</span>
           </Button>
         </div>
       }
