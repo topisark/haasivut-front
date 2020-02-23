@@ -23,9 +23,14 @@ const styles = theme => ({
     color: '#7d797ad4'
   },
   header: {
+    textDecoration: 'none',
     fontFamily: 'Caveat, cursive',
     fontSize: 20,
     paddingLeft: 20,
+    paddingRight: 5,
+    '&:hover': {
+      color: '#e58c8a'
+    }
   },
   menuList: {
     display: 'flex',
@@ -98,7 +103,7 @@ const NavBar = ({ classes, pages, location }) => {
 
   return (
     <Paper id="navbar-root" className={classes.root}>
-      <Typography className={classes.header} color="textPrimary">
+      <Typography component={Link} to="/" className={classes.header} color="textPrimary">
         Anniina & Topi
       </Typography>
       { isMobile() &&
