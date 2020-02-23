@@ -7,6 +7,7 @@ import { isMobile } from '../utils'
 
 const styles = theme => ({
   root: {
+    height: 56,
     display: 'flex',
     alignItems: 'center'
   },
@@ -25,7 +26,7 @@ const styles = theme => ({
   header: {
     textDecoration: 'none',
     fontFamily: 'Caveat, cursive',
-    fontSize: 20,
+    fontSize: 24,
     paddingLeft: 20,
     paddingRight: 5,
     '&:hover': {
@@ -37,7 +38,7 @@ const styles = theme => ({
     flexDirection: 'column',
   },
   menuPaper: {
-    marginTop: 21
+    marginTop: 41
   },
   menuButton: {
     display: 'flex',
