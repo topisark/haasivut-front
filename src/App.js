@@ -7,11 +7,12 @@ import {
 import { withStyles, MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/Favorite'
+import ScheduleIcon from '@material-ui/icons/Schedule'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
-import RoomIcon from '@material-ui/icons/Room';
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import RoomIcon from '@material-ui/icons/Room'
 import NavBar from './components/NavBar'
 import Home from './pages/home'
+import Schedule from './pages/schedule'
 import Register from './pages/register'
 import Map from './pages/map'
 import { reverse } from './utils'
@@ -43,6 +44,12 @@ const pages = [
     to: '/',
     component: Home,
     icon: <FavoriteBorderIcon/>
+  },
+  {
+    label: 'Aikataulu',
+    to: '/aikataulu',
+    component: Schedule,
+    icon: <ScheduleIcon/>
   },
   {
     label: 'Ilmoittaudu',
