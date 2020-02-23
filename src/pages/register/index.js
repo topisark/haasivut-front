@@ -34,15 +34,16 @@ const Register = ({ classes, history }) => {
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
+  const [music, setMusic] = useState('')
 
   const sendRegistration = useCallback(async () => {
     if (loading) return
     setLoading(true)
-    await addRegistration({ name, specials, speech, attending })
+    await addRegistration({ name, specials, speech, attending, music })
     setLoading(false)
     setDone(true)
     setShowDialog(true)
-  }, [loading, name, specials, speech, attending])
+  }, [loading, name, specials, speech, attending, music])
 
   const clearForm = () => {
     setAttending(true)
@@ -51,6 +52,7 @@ const Register = ({ classes, history }) => {
     setSpeech(false)
     setDone(false)
     setShowDialog(false)
+    setMusic('')
   }
 
   const allDone = () => {
@@ -97,6 +99,15 @@ const Register = ({ classes, history }) => {
             variant="outlined"
             value={specials}
             onChange={event => setSpecials(event.target.value)}
+          />
+          <TextField
+            disabled={loading || !attending}
+            className={ classes.inputField }
+            color="primary"
+            label="Biisitoive 🎶"
+            variant="outlined"
+            value={music}
+            onChange={event => setMusic(event.target.value)}
           />
           <FormControlLabel
             className={classes.inputField}
