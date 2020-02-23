@@ -54,7 +54,7 @@ const pages = [
     icon: <ScheduleIcon/>
   },
   {
-    label: 'Info',
+    label: 'Lisäinfo',
     to: '/info',
     component: Info,
     icon: <InfoIcon/>
