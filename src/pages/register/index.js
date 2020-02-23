@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { withStyles, Snackbar, Button, Typography, TextField, FormControlLabel, Switch } from '@material-ui/core'
+import { withStyles, Snackbar, Button, Typography, TextField, FormControlLabel, Checkbox, Switch, FormControl, FormLabel, RadioGroup, Radio } from '@material-ui/core'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
 import { withRouter } from 'react-router-dom'
 import { addRegistration } from '../../services/registrations'
@@ -11,25 +11,23 @@ const styles = theme => ({
     flexDirection: 'column'
   },
   inputField: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(3)
   },
   instructions: {
     padding: theme.spacing(4)
   },
-  doneIcon: {
-    width: 200,
-    height: 200
-  },
-  switchBase: {
-    color: '#eec0c6'
-  },
   controlLabelRoot: {
     marginLeft: 0,
     marginRight: 0
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column'
   }
 })
 
 const Register = ({ classes, history }) => {
+  const [attending, setAttending] = useState(true)
   const [name, setName] = useState('')
   const [specials, setSpecials] = useState('')
   const [speech, setSpeech] = useState(false)
@@ -40,13 +38,14 @@ const Register = ({ classes, history }) => {
   const sendRegistration = useCallback(async () => {
     if (loading) return
     setLoading(true)
-    await addRegistration({ name, specials, speech })
+    await addRegistration({ name, specials, speech, attending })
     setLoading(false)
     setDone(true)
     setShowDialog(true)
-  }, [loading, name, specials, speech])
+  }, [loading, name, specials, speech, attending])
 
   const clearForm = () => {
+    setAttending(true)
     setName('')
     setSpecials('')
     setSpeech(false)
@@ -67,7 +66,7 @@ const Register = ({ classes, history }) => {
         <CheckCircleOutlineIcon color="secondary" className={classes.doneIcon} />
       }
       { !done &&
-        <React.Fragment>
+        <div className={classes.form}>
           <Typography className={classes.instructions} variant="h5" color="textPrimary">
             Ilmoitathan jokaisen vieraan erikseen
           </Typography>
@@ -81,8 +80,15 @@ const Register = ({ classes, history }) => {
             value={name}
             onChange={event => setName(event.target.value)}
           />
+          <FormControl required component="fieldset" className={classes.inputField}>
+            <FormLabel component="legend">Osallistun hääjuhlaan</FormLabel>
+            <RadioGroup value={attending} onChange={e => setAttending(e.target.value === 'true' )}>
+              <FormControlLabel value={true} control={<Radio color="primary" />} label="Kyllä" />
+              <FormControlLabel value={false} control={<Radio color="primary" />} label="En" />
+            </RadioGroup>
+          </FormControl>
           <TextField
-            disabled={loading}
+            disabled={loading || !attending}
             multiline
             rows="2"
             className={ classes.inputField }
@@ -93,12 +99,13 @@ const Register = ({ classes, history }) => {
             onChange={event => setSpecials(event.target.value)}
           />
           <FormControlLabel
-            className={ classes.inputField }
+            className={classes.inputField}
             control={
-              <Switch
+              <Checkbox
+                disabled={loading || !attending}
+                onChange={e => setSpeech(e.target.checked)}
                 color="primary"
                 checked={speech}
-                onChange={e => setSpeech(e.target.checked)}
               />
             }
             label={<Typography color="textPrimary">Haluan pitää juhlassa puheen</Typography>}
@@ -111,7 +118,7 @@ const Register = ({ classes, history }) => {
           >
             Ilmoittaudu
           </Button>
-        </React.Fragment>
+        </div>
       }
       <Snackbar
         open={showDialog}
