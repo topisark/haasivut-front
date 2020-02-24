@@ -1,6 +1,6 @@
 import { withStyles, Divider } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
-import kukka from '../../assets/kukka.png'
+import kukka from '../../assets/kukkaset.png'
 import React from 'react'
 
 const styles = theme => ({
@@ -38,7 +38,7 @@ const styles = theme => ({
 
 const Home = ({ classes }) => (
   <div className={classes.root}>
-    <img src={kukka} style={{ width: 80 }}/>
+    <img alt="" src={kukka} style={{ width: 250 }}/>
     <div className={classes.headerContainer}>
       <Typography variant="h2" className={classes.header} color="textPrimary">
         Anniina & Topi
