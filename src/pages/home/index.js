@@ -24,11 +24,13 @@ const styles = theme => ({
     fontSize: 14
   },
   infoSection: {
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    maxWidth: 375
   },
   divider: {
     margin: theme.spacing(2),
     width: '50%',
+    maxWidth: 500,
   },
   infoText: {
     paddingBottom: theme.spacing(1),
