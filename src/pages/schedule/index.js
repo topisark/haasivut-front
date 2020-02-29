@@ -63,7 +63,7 @@ const Schedule = ({ classes }) => (
       <ScheduleItem>15:00 - Vihkiminen</ScheduleItem>
       <ScheduleItem>15:30 - Siirtyminen juhlapaikalle</ScheduleItem>
       <ScheduleItem>16:30 - Alkumalja & yhteiskuva</ScheduleItem>
-      <ScheduleItem>17:00 - Ruokailu</ScheduleItem>
+      <ScheduleItem>17:00 - Illallinen</ScheduleItem>
       <ScheduleItem>20:00 - Hääkakun leikkaus</ScheduleItem>
       <ScheduleItem>21:00 - Häävalssi</ScheduleItem>
       <ScheduleItem>00:00 - Jatkot</ScheduleItem>
