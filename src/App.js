@@ -8,6 +8,7 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/Favorite'
 import ScheduleIcon from '@material-ui/icons/Schedule'
+import PhotoCameraIcon from '@material-ui/icons/PhotoCamera'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
 import InfoIcon from '@material-ui/icons/Info'
 import RoomIcon from '@material-ui/icons/Room'
@@ -16,6 +17,7 @@ import Home from './pages/home'
 import Schedule from './pages/schedule'
 import Info from './pages/info'
 import Register from './pages/register'
+import Gallery from './pages/gallery'
 import Map from './pages/map'
 import { reverse } from './utils'
 
@@ -66,17 +68,17 @@ const pages = [
     icon: <RoomIcon/>
   },
   {
+    label: 'Kuvat',
+    to: '/kuvat',
+    component: Gallery,
+    icon: <PhotoCameraIcon/>
+  },
+  {
     label: 'Ilmoittaudu',
     to: '/ilmoittaudu',
     component: Register,
     icon: <PersonAddIcon/>
-  },
-  /*{
-    label: 'Kuvat',
-    to: '/Kuvat',
-    component: Home,
-    icon: <CameraAltIcon/>
-  }*/
+  }
 ]
 
 const App = ({ classes }) => (
