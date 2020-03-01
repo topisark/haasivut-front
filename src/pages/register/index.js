@@ -7,6 +7,7 @@ import { addRegistration } from '../../services/registrations'
 
 const styles = theme => ({
   root: {
+    padding: theme.spacing(1),
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column'
@@ -20,14 +21,14 @@ const styles = theme => ({
   },
   instructions: {
     fontWeight: 400,
-    fontSize: 19,
-    padding: theme.spacing(1)
+    fontSize: 17,
   },
   controlLabelRoot: {
     marginLeft: 0,
     marginRight: 0
   },
   form: {
+    maxWidth: 450,
     display: 'flex',
     flexDirection: 'column'
   },
@@ -77,7 +78,10 @@ const Register = ({ classes, history }) => {
       { !done &&
         <div className={classes.form}>
           <Typography className={classes.instructions} variant="h5" color="textPrimary">
-            Ilmoitathan jokaisen vieraan erikseen
+            Ilmoitathan jokaisen vieraan erikseen.
+          </Typography>
+          <Typography  variant="caption" color="textPrimary">
+            Huomaathan, että kutsu koskee henkilöitä, joille se on osoitettu.
           </Typography>
           <TextField
             disabled={loading}

@@ -55,7 +55,10 @@ const Home = ({ classes }) => (
         Tervetuloa juhlimaan häitämme 9.5.2020 klo 15 Kulosaaren kirkkoon.
       </Typography>
       <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Vihkimisen jälkeen suuntaamme juhlapaikalle Kulosaaren Casinolle lyhyen kävelymatkan päähän.
+        Vihkimisen jälkeen suuntaamme juhlapaikalle Kulosaaren Casinon Sun Marine -saliin lyhyen kävelymatkan päähän.
+      </Typography>
+      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
+        V.p. 19.4.
       </Typography>
     </div>
   </div>
