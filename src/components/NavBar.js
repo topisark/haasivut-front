@@ -29,6 +29,7 @@ const styles = theme => ({
     fontSize: 24,
     paddingLeft: 20,
     paddingRight: 5,
+    color: '#5d5d5d',
     '&:hover': {
       color: '#e58c8a'
     }
