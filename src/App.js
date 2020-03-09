@@ -12,6 +12,7 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCamera'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
 import InfoIcon from '@material-ui/icons/Info'
 import RoomIcon from '@material-ui/icons/Room'
+import GoogleAnalytics from './components/GoogleAnalytics'
 import NavBar from './components/NavBar'
 import Home from './pages/home'
 import Schedule from './pages/schedule'
@@ -20,6 +21,7 @@ import Register from './pages/register'
 import Gallery from './pages/gallery'
 import Map from './pages/map'
 import { reverse } from './utils'
+
 
 const styles = theme => ({
   root: {
@@ -84,19 +86,20 @@ const pages = [
 const App = ({ classes }) => (
   <div className={ classes.root }>
     <Router>
+      <GoogleAnalytics />
       <MuiThemeProvider theme={ theme }>
-        <NavBar pages={pages} />
-        <div className={ classes.content }>
-          <Switch>
-            {reverse(pages).map(page => (
-              <Route
-                key={page.label}
-                path={page.to}
-                component={page.component}
-              />
-            ))}
-          </Switch>
-        </div>
+      <NavBar pages={pages} />
+      <div className={ classes.content }>
+        <Switch>
+          {reverse(pages).map(page => (
+            <Route
+              key={page.label}
+              path={page.to}
+              component={page.component}
+            />
+          ))}
+        </Switch>
+      </div>
       </MuiThemeProvider>
     </Router>
   </div>
