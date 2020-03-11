@@ -3,5 +3,5 @@ export const reverse = array => array.map((item, index) => array[ array.length -
 export const isMobile = () => {
   const currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
-  return currentWidth < 500
+  return currentWidth < 800
 }

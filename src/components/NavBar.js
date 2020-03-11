@@ -24,6 +24,7 @@ const styles = theme => ({
     color: '#7d797ad4'
   },
   header: {
+    minWidth: 125,
     textDecoration: 'none',
     fontFamily: 'Caveat, cursive',
     fontSize: 24,
