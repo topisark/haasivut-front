@@ -25,7 +25,7 @@ const styles = theme => ({
   },
   infoSection: {
     padding: theme.spacing(2),
-    maxWidth: 375
+    maxWidth: 500
   },
   divider: {
     margin: theme.spacing(2),
@@ -35,6 +35,11 @@ const styles = theme => ({
   infoText: {
     paddingBottom: theme.spacing(1),
     textAlign: 'center',
+  },
+  huom: {
+    paddingBottom: theme.spacing(1),
+    textAlign: 'center',
+    fontWeight: 600
   }
 })
 
@@ -47,6 +52,15 @@ const Home = ({ classes }) => (
       </Typography>
       <Typography variant="caption" color="textPrimary" className={classes.caption}>
         9.5.2020, Kulosaari
+      </Typography>
+    </div>
+    <Divider className={classes.divider} />
+    <div className={classes.infoSection}>
+      <Typography variant="body2" color="textPrimary" className={classes.huom}>
+        Päivitys 18.3.
+      </Typography>
+      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
+        Koronavirustilanteen vuoksi juhlapaikan varauksemme on peruuntunut. Toiveenamme on kuitenkin vielä viettää häitä 9.5. Selvitämme vaihtoehtoja ja päivitämme miten tilanne etenee.
       </Typography>
     </div>
     <Divider className={classes.divider} />
