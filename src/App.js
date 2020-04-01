@@ -75,12 +75,12 @@ const pages = [
     component: Gallery,
     icon: <PhotoCameraIcon/>
   },
-  {
+/*  {
     label: 'Ilmoittaudu',
     to: '/ilmoittaudu',
     component: Register,
     icon: <PersonAddIcon/>
-  }
+  }*/
 ]
 
 const App = ({ classes }) => (

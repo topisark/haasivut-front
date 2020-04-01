@@ -57,10 +57,16 @@ const Home = ({ classes }) => (
     <Divider className={classes.divider} />
     <div className={classes.infoSection}>
       <Typography variant="body2" color="textPrimary" className={classes.huom}>
-        Päivitys 18.3.
+        Päivitys 1.4.
       </Typography>
       <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Koronavirustilanteen vuoksi juhlapaikan varauksemme on peruuntunut. Toiveenamme on kuitenkin vielä viettää häitä 9.5. Selvitämme vaihtoehtoja ja päivitämme miten tilanne etenee.
+        Kokoontumisrajoitusten vuoksi joudumme perumaan hääjuhlamme ja menemme 9.5. naimisiin pienimuotoisesti vain todistajien läsnäollessa. Onnitteluja saa kuitenkin halutessaan lähettää korttien muodossa. :)
+      </Typography>
+      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
+        Päivitämme sivuille kuvia vihkimisen jälkeen, jotta kaikki saavat osansa häähumusta!
+      </Typography>
+      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
+        Harkinnassa on myös juhlien järjestäminen vuoden päästä ensimmäisenä hääpäivänämme.
       </Typography>
     </div>
     <Divider className={classes.divider} />

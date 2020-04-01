@@ -51,10 +51,10 @@ const Info = ({ classes }) => (
         title="Häälahjat"
         text="Tärkeintä meille on, että saavutte juhlistamaan rakkauttamme. Lisäksi toivomme käsinkirjoitettuja kortteja, joissa on persoonallisia onnentoivotuksia juhlapäivänämme. Jos kuitenkin myös haluatte muistaa meitä jotenkin muuten, niin voitte osallistua häämatkakassan kartuttamiseen mieleisellänne summalla (FI52 5800 1320 4150 77). Toiveemme on, että emme saisi tavaralahjoja."
       />
-      <InfoItem
+{/*      <InfoItem
         title="Kysyttävää?"
         text="Askarruttaako jokin mieltä? Kerkesitkö jo ilmoittautumaan, mutta haluaisit sittenkin pitää puheen tai esityksen? Ota yhteyttä kaasoon: Saara, 050-3561664."
-      />
+      />*/}
     </div>
   </div>
 )
