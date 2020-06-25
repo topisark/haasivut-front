@@ -1,5 +1,6 @@
 import { withStyles, Tabs, Tab } from '@material-ui/core'
 import ImageGallery from 'react-image-gallery'
+import ReactPlayer from 'react-player'
 import React from 'react'
 
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
@@ -47,9 +48,8 @@ function TabPanel(props) {
     >
       {children}
     </div>
-  );
+  )
 }
-
 
 const Images = withStyles(styles)(({ classes }) => {
   return (
@@ -64,6 +64,7 @@ const Images = withStyles(styles)(({ classes }) => {
 
 const Gallery = ({ classes }) => {
   const [ activeTab, setActiveTab ] = React.useState(0)
+  const [ loading, setLoading ] = React.useState(true)
 
   return (
     <div className={ classes.root }>
@@ -77,7 +78,15 @@ const Gallery = ({ classes }) => {
         <Tab label="Kuvagalleria" />
       </Tabs>
       <TabPanel value={activeTab} index={0}>
-        Video
+        <ReactPlayer
+          style={{ visibility: loading ? 'hidden' : 'inherit' }}
+          className='react-player fixed-bottom'
+          url='https://topi-anniina-haakuvat.s3.eu-central-1.amazonaws.com/video_720.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+          onReady={() => setLoading(false)}
+        />
       </TabPanel>
       <TabPanel value={activeTab} index={1}>
         <Images/>
