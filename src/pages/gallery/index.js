@@ -1,4 +1,4 @@
-import { withStyles, Tabs, Tab } from '@material-ui/core'
+import { withStyles, Tabs, Tab, CircularProgress } from '@material-ui/core'
 import ImageGallery from 'react-image-gallery'
 import ReactPlayer from 'react-player'
 import React from 'react'
@@ -18,6 +18,9 @@ const styles = theme => ({
   },
   tabsRoot: {
     marginBottom: theme.spacing(2),
+  },
+  loadingIndicator: {
+    marginTop: theme.spacing(6)
   }
 })
 
@@ -77,6 +80,11 @@ const Gallery = ({ classes }) => {
         <Tab label="Häävideo"  />
         <Tab label="Kuvagalleria" />
       </Tabs>
+      { loading &&
+      <div className={classes.loadingIndicator}>
+        <CircularProgress color="primary" size={100} />
+      </div>
+      }
       <TabPanel value={activeTab} index={0}>
         <ReactPlayer
           style={{ visibility: loading ? 'hidden' : 'inherit' }}
