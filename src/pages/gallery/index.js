@@ -68,12 +68,18 @@ const Images = withStyles(styles)(({ classes }) => {
 const Gallery = ({ classes }) => {
   const [ activeTab, setActiveTab ] = React.useState(0)
   const [ loading, setLoading ] = React.useState(true)
+  const [ playing, setPlaying ] = React.useState(false)
 
+  const handleTabChange = newValue => {
+    setActiveTab(newValue)
+    setPlaying(false)
+  }
+  
   return (
     <div className={ classes.root }>
       <Tabs
         value={activeTab}
-        onChange={(event, newValue) => setActiveTab(newValue)}
+        onChange={(event, newValue) => handleTabChange(newValue)}
         indicatorColor="primary"
         classes={{ root: classes.tabsRoot }}
       >
@@ -81,13 +87,15 @@ const Gallery = ({ classes }) => {
         <Tab label="Kuvagalleria" />
       </Tabs>
       { loading &&
-      <div className={classes.loadingIndicator}>
-        <CircularProgress color="primary" size={100} />
-      </div>
+        <div className={classes.loadingIndicator}>
+          <CircularProgress color="primary" size={100} />
+        </div>
       }
       <TabPanel value={activeTab} index={0}>
         <ReactPlayer
-          style={{ visibility: loading ? 'hidden' : 'inherit' }}
+          onPlay={() => setPlaying(true)}
+          playing={playing}
+          style={{ display: loading ? 'none' : 'inherit' }}
           className='react-player fixed-bottom'
           url='https://topi-anniina-haakuvat.s3.eu-central-1.amazonaws.com/video_720.mp4'
           width='100%'
