@@ -27,7 +27,7 @@ const styles = theme => ({
 const renderItem = ({ original }) => {
   return (
     <div>
-      <img style={{ maxHeight: 'calc(100vh - 320px)' }} className="image-gallery-image" src={original}/>
+      <img alt="" style={{ maxHeight: 'calc(100vh - 320px)' }} className="image-gallery-image" src={original}/>
     </div>
   )
 }
@@ -74,7 +74,7 @@ const Gallery = ({ classes }) => {
     setActiveTab(newValue)
     setPlaying(false)
   }
-  
+
   return (
     <div className={ classes.root }>
       <Tabs
