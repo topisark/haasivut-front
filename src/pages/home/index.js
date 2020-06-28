@@ -1,7 +1,9 @@
-import { withStyles, Divider } from '@material-ui/core'
+import { withStyles, Divider, Button } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
+import { Link } from 'react-router-dom'
 import kukka from '../../assets/kukkaset.png'
 import React from 'react'
+import { isMobile } from '../../utils'
 
 const styles = theme => ({
   root: {
@@ -18,7 +20,8 @@ const styles = theme => ({
     alignItems: 'center'
   },
   header: {
-    fontFamily: 'Caveat, cursive'
+    fontFamily: 'Caveat, cursive',
+    fontSize: isMobile() ? 50 : 60,
   },
   caption: {
     fontSize: 14
@@ -43,7 +46,7 @@ const styles = theme => ({
   }
 })
 
-const Home = ({ classes }) => (
+const Home = ({ classes, navigation }) => (
   <div className={classes.root}>
     <img alt="" src={kukka} style={{ width: 250 }}/>
     <div className={classes.headerContainer}>
@@ -57,30 +60,25 @@ const Home = ({ classes }) => (
     <Divider className={classes.divider} />
     <div className={classes.infoSection}>
       <Typography variant="body2" color="textPrimary" className={classes.huom}>
-        Päivitys 1.4.
+        Kuvat julkaistu!
       </Typography>
       <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Kokoontumisrajoitusten vuoksi joudumme perumaan hääjuhlamme ja menemme 9.5. naimisiin pienimuotoisesti vain todistajien läsnäollessa. Onnitteluja saa kuitenkin halutessaan lähettää korttien muodossa. :)
+        Paljon kiitoksia kaikista saamistamme onnitteluista! Hääkuvat ja -video löytyvät nyt Kuvat-sivulta.
       </Typography>
       <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Päivitämme sivuille kuvia vihkimisen jälkeen, jotta kaikki saavat osansa häähumusta!
-      </Typography>
-      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Harkinnassa on myös juhlien järjestäminen vuoden päästä ensimmäisenä hääpäivänämme.
+        Kuvat: Marko Laukkarinen
+        <br/>
+        Video: Joni Alhonen / JA-Media
       </Typography>
     </div>
-    <Divider className={classes.divider} />
-    <div className={classes.infoSection}>
-      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Tervetuloa juhlimaan häitämme 9.5.2020 klo 15 Kulosaaren kirkkoon.
-      </Typography>
-      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        Vihkimisen jälkeen suuntaamme juhlapaikalle Kulosaaren Casinon Sun Marine -saliin lyhyen kävelymatkan päähän.
-      </Typography>
-      <Typography variant="body2" color="textPrimary" className={classes.infoText}>
-        V.p. 19.4.
-      </Typography>
-    </div>
+    <Button
+      component={Link}
+      to={'/kuvat'}
+      variant="outlined"
+      color="primary"
+    >
+      Kuviin
+    </Button>
   </div>
 )
 
